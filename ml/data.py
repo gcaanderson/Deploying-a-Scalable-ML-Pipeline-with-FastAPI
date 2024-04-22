@@ -3,7 +3,7 @@ from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
 
 def process_data(
-    X, categorical_features=[], label=None, training=True, encoder=None, lb=None
+    X, categorical_features=[], label=None, training=True, encoder=None, lb=None, column_name=None, slice_value=None
 ):
     """ Process the data used in the machine learning pipeline.
 
@@ -43,6 +43,9 @@ def process_data(
         Trained LabelBinarizer if training is True, otherwise returns the binarizer
         passed in.
     """
+    if column_name is not None and slice_value is not None:
+        # Filter the data based on the specified column and value
+        X = X[X[column_name] == slice_value]
 
     if label is not None:
         y = X[label]
