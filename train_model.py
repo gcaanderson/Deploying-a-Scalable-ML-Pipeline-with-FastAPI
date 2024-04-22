@@ -65,7 +65,6 @@ with open(model_path, 'wb') as f:
     pickle.dump(model, f)
 save_model(model, model_path)
 
-
 encoder_path = os.path.join(model_dir, "encoder.pkl")
 with open(encoder_path, 'wb') as f:
     pickle.dump(encoder, f)
@@ -77,7 +76,7 @@ model = load_model(
 ) 
 
 # TODO: use the inference function to run the model inferences on the test dataset.
-preds = inference(model, test)
+preds = inference(model, X_test)
 
 # Calculate and print the metrics
 p, r, fb = compute_model_metrics(y_test, preds)
@@ -90,7 +89,7 @@ for col in cat_features:
     for slicevalue in sorted(test[col].unique()):
         count = test[test[col] == slicevalue].shape[0]
         p, r, fb = performance_on_categorical_slice(
-            test, col, slicevalue, cat_features
+            test, cat_features, "salary", encoder, lb, False
         )
         with open("slice_output.txt", "a") as f:
             print(f"{col}: {slicevalue}, Count: {count:,}", file=f)

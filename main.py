@@ -26,10 +26,10 @@ class Data(BaseModel):
     hours_per_week: int = Field(..., example=40, alias="hours-per-week")
     native_country: str = Field(..., example="United-States", alias="native-country")
 
-path = "encoder.pkl" # TODO: enter the path for the saved encoder 
+path = "model\encoder.pkl" # TODO: enter the path for the saved encoder 
 encoder = load_model(path)
 
-path = "model.pkl" # TODO: enter the path for the saved model 
+path = "model\model.pkl" # TODO: enter the path for the saved model 
 model = load_model(path)
 
 # TODO: create a RESTful API using FastAPI
@@ -39,7 +39,7 @@ app = FastAPI()
 @app.get("/")
 async def get_root():
     """ Say hello!"""
-    return {"message": "Hello!"}
+    print("Hello!")
     pass
 
 
@@ -70,9 +70,8 @@ async def post_inference(data: Data):
         # use training = False
         # do not need to pass lb as input
         data, 
-        training=False,
-        encoder=encoder,
         categorical_features=cat_features
+        training=False,
     )
     _inference = inference(model, data_processed) # your code here to predict the result using data_processed
     return {"result": apply_label(_inference)}

@@ -20,11 +20,11 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
+   
     model = RandomForestClassifier()
     model.fit(X_train, y_train)
     return model 
 
-    pass
 
 
 def compute_model_metrics(y, preds):
@@ -131,7 +131,9 @@ def performance_on_categorical_slice(
 
     """
     X_slice, y_slice, _, _ = process_data(
-        data, column_name, slice_value, categorical_features, label, encoder=encoder, lb=lb, training = False
+        # for input data, use data in column given as "column_name", with the slice_value 
+        # use training = False
+        data, categorical_features, label, False, encoder, lb
     )
     preds = inference(model, X_slice)
     precision, recall, fbeta = compute_model_metrics(y_slice, preds)
