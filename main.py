@@ -72,6 +72,7 @@ async def post_inference(data: Data):
         data, 
         categorical_features=cat_features
         training=False,
+        encoder
     )
     _inference = inference(model, data_processed) # your code here to predict the result using data_processed
     return {"result": apply_label(_inference)}
