@@ -1,15 +1,17 @@
 import json
-
 import requests
 
 # TODO: send a GET using the URL http://127.0.0.1:8000
-# r = # Your code here
+# @app.get("http://127.0.0.1:8000")
+# or??
+# client = TestClient(app)
+# replace requests with client if below doesn't work
+# r = requests.get("http://127.0.0.1:8000")
 
 # TODO: print the status code
-# print()
+# print(r.status_code)
 # TODO: print the welcome message
-# print()
-
+# print(r.json()["message"])
 
 
 data = {
@@ -30,6 +32,7 @@ data = {
 }
 
 # TODO: send a POST using the data above
+# @app.post(data)
 # r = # Your code here
 
 # TODO: print the status code
