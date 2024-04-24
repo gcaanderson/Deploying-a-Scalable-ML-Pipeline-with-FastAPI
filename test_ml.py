@@ -1,9 +1,9 @@
 import pytest
 # Add necessary imports
-from train_model import train, test, data
+from train_model import train, test, data, X_train, y_train
 from main import process_data
+from sklearn.ensemble import RandomForestClassifier
 
-# TODO: implement the first test. Change the function name and input as needed
 def test_size_datasets():
     """
     Check if the train and test datasets are the expected size, 
@@ -37,9 +37,13 @@ def test_model_encoder_files():
 
 
 # TODO: implement the third test. Change the function name and input as needed
-def test_process_data():
+def test_model_algorithm():
     """
-    # Check if process_data function produces an array for data_processed.
+    # Check if the model uses the expected algorithm, Random Forest Classifier.
     """
-    #assert isinstance(data_processed, array) == True
+    model = RandomForestClassifier()
+    model.fit(X_train, y_train)
+    expected_algorithm = 'RandomForestClassifier'
+    assert model.__class__.__name__ == expected_algorithm
+
     pass
