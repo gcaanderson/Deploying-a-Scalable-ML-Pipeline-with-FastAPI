@@ -3,6 +3,7 @@ import pytest
 from train_model import train, test, data, X_train, y_train
 from main import process_data
 from sklearn.ensemble import RandomForestClassifier
+import os
 
 def test_size_datasets():
     """
@@ -26,12 +27,12 @@ def test_model_encoder_files():
     # Check if the model and encoder have been saved successfully. 
     """
     # Check the existence of the files
-    #assert os.path.exists("model\encoder.pkl"), f"Encoder pickle file does not exist"
-    #assert os.path.exists("model\model.pkl"), f"Model pickle file does not exist"
+    assert os.path.exists("model\\encoder.pkl"), f"Encoder pickle file does not exist"
+    assert os.path.exists("model\\model.pkl"), f"Model pickle file does not exist"
 
     # Check if the files are empty
-    #assert os.stat("model\encoder.pkl").st_size > 0, f"Encoder pickle file is empty"
-    #assert os.stat("model\model.pkl").st_size > 0, f"Model pickle file is empty"
+    assert os.stat("model\\encoder.pkl").st_size > 0, f"Encoder pickle file is empty"
+    assert os.stat("model\\model.pkl").st_size > 0, f"Model pickle file is empty"
 
     pass
 
