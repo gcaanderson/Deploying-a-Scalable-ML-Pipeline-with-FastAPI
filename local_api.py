@@ -33,6 +33,7 @@ data = {
 
 # TODO: send a POST using the data above
 # @app.post(data)
+# or?
 # r = requests.post(http://127.0.0.1:8000, json=data)
 
 # TODO: print the status code
