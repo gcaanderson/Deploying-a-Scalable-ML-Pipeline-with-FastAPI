@@ -1,28 +1,30 @@
 import pytest
-# TODO: add necessary import
+# Add necessary imports
+from train_model.py import train, test, model, model_dir, model_path
 
 # TODO: implement the first test. Change the function name and input as needed
-def test_one():
+def test_datasets_file_type(train, test):
     """
-    # add description for the first test
+    # Check if the train and test datasets have the expected file type, which is a CSV.
     """
-    # Your code here
+    assert train.endswith(".csv")
+    assert test.endswith(".csv")
     pass
 
 
 # TODO: implement the second test. Change the function name and input as needed
 def test_two():
     """
-    # add description for the second test
+    # Check if the model and encoder have been saved successfully. 
     """
     # Your code here
     pass
 
 
 # TODO: implement the third test. Change the function name and input as needed
-def test_three():
+def test_process_data():
     """
-    # add description for the third test
+    # Check if process_data function produces an array for data_processed.
     """
-    # Your code here
+    assert isinstance(data_processed, array) == True
     pass
