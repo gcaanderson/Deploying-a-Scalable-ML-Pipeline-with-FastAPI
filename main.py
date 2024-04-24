@@ -39,7 +39,7 @@ app = FastAPI()
 @app.get("/")
 async def get_root():
     """ Say hello!"""
-    print("Hello!")
+    print("message": "Welcome to the API!")
     pass
 
 
