@@ -7,6 +7,7 @@ import requests
 # or??
 # client = TestClient(app)
 # replace requests with client if below doesn't work
+# orrrrr
 # r = requests.get("http://127.0.0.1:8000")
 
 # TODO: print the status code
